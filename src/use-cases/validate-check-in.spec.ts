@@ -2,15 +2,15 @@ import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-c
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { LateCheckInValidationError } from "./errors/late-check-in-validation-error";
 import { ResourceNotFoundError } from "./errors/resoure-not-found-error";
-import { ValidadeCheckInUseCase } from "./validate-check-in";
+import { ValidateCheckInUseCase } from "./validate-check-in";
 
 let checkInsRepository: InMemoryCheckInsRepository;
-let sut: ValidadeCheckInUseCase;
+let sut: ValidateCheckInUseCase;
 
 describe("Validate check-in use case", () => {
   beforeEach(async () => {
     checkInsRepository = new InMemoryCheckInsRepository();
-    sut = new ValidadeCheckInUseCase(checkInsRepository);
+    sut = new ValidateCheckInUseCase(checkInsRepository);
 
     vi.useFakeTimers();
   });
