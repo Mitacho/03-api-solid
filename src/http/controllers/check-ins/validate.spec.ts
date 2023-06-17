@@ -4,7 +4,7 @@ import { createAndAuthenticateUser } from "@/utils/test/create-and-authenticate-
 import request from "supertest";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
-describe("Validate check-in (e2e)", () => {
+describe("Validate Check-in (e2e)", () => {
   beforeAll(async () => {
     await app.ready();
   });
@@ -21,8 +21,8 @@ describe("Validate check-in (e2e)", () => {
     const gym = await prisma.gym.create({
       data: {
         title: "JavaScript Gym",
-        latitude: -22.7661764,
-        longitude: -47.3285686,
+        latitude: -27.2092052,
+        longitude: -49.6401091,
       },
     });
 
@@ -34,7 +34,7 @@ describe("Validate check-in (e2e)", () => {
     });
 
     const response = await request(app.server)
-      .post(`/check-ins/${gym.id}/validate`)
+      .patch(`/check-ins/${checkIn.id}/validate`)
       .set("Authorization", `Bearer ${token}`)
       .send();
 

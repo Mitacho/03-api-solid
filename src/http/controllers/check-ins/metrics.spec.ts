@@ -13,7 +13,7 @@ describe("Check-in metrics (e2e)", () => {
     await app.close();
   });
 
-  it("should be able to get the count of heck-ins", async () => {
+  it("should be able to get the count of check-ins", async () => {
     const { token } = await createAndAuthenticateUser(app);
 
     const user = await prisma.user.findFirstOrThrow();
@@ -40,7 +40,7 @@ describe("Check-in metrics (e2e)", () => {
     });
 
     const response = await request(app.server)
-      .get("/check-ins/history")
+      .get("/check-ins/metrics")
       .set("Authorization", `Bearer ${token}`)
       .send();
 
